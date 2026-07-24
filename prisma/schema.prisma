@@ -1,0 +1,137 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  name      String
+  initials  String
+  title     String
+  bio       String
+  photoUrl  String?
+  linkedin  String?
+  order     Int      @default(0)
+  updatedAt DateTime @updatedAt
+}
+
+model BlogPost {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  category      String
+  readTime      String
+  excerpt       String
+  contentMd     String   @db.Text
+  coverImageUrl String?
+  isFeatured    Boolean  @default(false)
+  publishedAt   DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model CareerRole {
+  id            String   @id @default(cuid())
+  slug          String   @unique
+  title         String
+  department    String
+  location      String
+  type          String
+  descriptionMd String   @db.Text
+  isOpen        Boolean  @default(true)
+  updatedAt     DateTime @updatedAt
+}
+
+model Product {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  tagline     String
+  description String    @db.Text
+  url         String?
+  logoUrl     String?
+  status      String    @default("live") // live | beta | coming-soon
+  stats       Json?     // array of { label, value }, e.g. [{ "label": "Farmers", "value": "50,000+" }]
+  order       Int       @default(0)
+  updatedAt   DateTime  @updatedAt
+  features    Project[]
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  title     String
+  tags      String[]
+  imageUrl  String?
+  order     Int      @default(0)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Service {
+  id       String @id @default(cuid())
+  title    String
+  desc     String
+  iconName String
+  order    Int    @default(0)
+}
+
+model Testimonial {
+  id       String @id @default(cuid())
+  quote    String
+  name     String
+  role     String
+  iconName String
+  order    Int    @default(0)
+}
+
+model FaqItem {
+  id       String @id @default(cuid())
+  question String
+  answer   String @db.Text
+  order    Int    @default(0)
+}
+
+model SiteSettings {
+  id           String @id @default("singleton")
+  contactEmail String
+  careersEmail String
+  linkedinUrl  String
+  twitterUrl   String
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String?  @db.Text
+  context   String[]
+  budget    String?
+  intent    String
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+}
+
+model Contract {
+  id          String    @id @default(cuid())
+  clientName  String
+  serviceType String
+  value       Decimal?
+  status      String    @default("proposed")
+  startDate   DateTime?
+  endDate     DateTime?
+  notes       String?   @db.Text
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
