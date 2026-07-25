@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { SubmitButton } from "@/components/ui/SubmitButton";
 import { TeamMemberFields } from "../TeamMemberFields";
 import { createTeamMember } from "../actions";
 
@@ -10,9 +10,9 @@ export default function NewTeamMemberPage() {
 
       <form action={createTeamMember} className="flex flex-col gap-8">
         <TeamMemberFields />
-        <Button type="submit" className="w-fit">
+        <SubmitButton className="w-fit" pendingText="Creating…">
           Create
-        </Button>
+        </SubmitButton>
       </form>
     </div>
   );

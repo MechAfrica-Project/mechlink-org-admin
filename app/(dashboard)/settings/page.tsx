@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { SubmitButton } from "@/components/ui/SubmitButton";
 import { getSiteSettings } from "@/lib/site-settings";
 import { updateSiteSettings } from "./actions";
 
@@ -38,9 +38,9 @@ export default async function AdminSettingsPage() {
           <input name="twitterUrl" type="url" required defaultValue={settings.twitterUrl} className={inputClasses} />
         </div>
 
-        <Button type="submit" className="w-fit">
+        <SubmitButton className="w-fit" pendingText="Saving…">
           Save Changes
-        </Button>
+        </SubmitButton>
       </form>
     </div>
   );

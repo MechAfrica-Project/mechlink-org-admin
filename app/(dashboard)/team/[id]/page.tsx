@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { Button } from "@/components/ui/Button";
+import { SubmitButton } from "@/components/ui/SubmitButton";
 import { prisma } from "@/lib/prisma";
 import { TeamMemberFields } from "../TeamMemberFields";
 import { updateTeamMember } from "../actions";
@@ -31,9 +31,9 @@ export default async function EditTeamMemberPage({
             photoUrl: member.photoUrl,
           }}
         />
-        <Button type="submit" className="w-fit">
+        <SubmitButton className="w-fit" pendingText="Saving…">
           Save Changes
-        </Button>
+        </SubmitButton>
       </form>
     </div>
   );
