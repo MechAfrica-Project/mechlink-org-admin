@@ -11,7 +11,7 @@ const prisma = new PrismaClient({ adapter });
 
 async function main() {
   // --- Admin user ---
-  const adminEmail = "admin@mechafrica.com";
+  const adminEmail = "admin@mechlink.org";
   const existingAdmin = await prisma.adminUser.findUnique({ where: { email: adminEmail } });
   let generatedPassword: string | null = null;
 
