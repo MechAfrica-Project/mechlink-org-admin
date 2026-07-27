@@ -224,8 +224,9 @@ None of the three pillars is the "real" business propping up hobbies on the side
       logoUrl: null,
       status: "live",
       stats: [
-        { label: "Farmers", value: "50,000+" },
-        { label: "Providers", value: "1,000+" },
+        { label: "Farmers", value: "12,150+" },
+        { label: "Providers", value: "652" },
+        { label: "Regions", value: "9" },
       ],
       order: 0,
     },
@@ -288,8 +289,8 @@ None of the three pillars is the "real" business propping up hobbies on the side
     update: {},
     create: {
       id: "singleton",
-      contactEmail: "hello@mechlink.africa",
-      careersEmail: "careers@mechlink.africa",
+      contactEmail: "hello@mechlink.org",
+      careersEmail: "careers@mechlink.org",
       linkedinUrl: "https://linkedin.com/company/mechlink",
       twitterUrl: "https://twitter.com/mechlinkafrica",
     },

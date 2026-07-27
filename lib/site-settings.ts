@@ -2,8 +2,8 @@ import { prisma } from "./prisma";
 
 const fallback = {
   id: "singleton",
-  contactEmail: "hello@mechlink.africa",
-  careersEmail: "careers@mechlink.africa",
+  contactEmail: "hello@mechlink.org",
+  careersEmail: "careers@mechlink.org",
   linkedinUrl: "https://linkedin.com/company/mechlink",
   twitterUrl: "https://twitter.com/mechlinkafrica",
 };

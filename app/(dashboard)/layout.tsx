@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { LayoutDashboard, Users, Inbox, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, Package, Inbox, Settings, LogOut } from "lucide-react";
 import { auth } from "@/auth";
 import { Logo } from "@/components/ui/Logo";
 import { signOutAction } from "./actions";
 
 const navItems = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/products", label: "Products", icon: Package },
   { href: "/team", label: "Team", icon: Users },
   { href: "/inbox", label: "Inbox", icon: Inbox },
   { href: "/settings", label: "Settings", icon: Settings },
